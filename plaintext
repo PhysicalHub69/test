@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>CyberNet Central - Your Web Portal Since 1998</title>
+    <style>
+        body {
+            background-color: #c0c0c0;
+            color: black;
+            font-family: "MS Sans Serif", sans-serif;
+            font-size: 11px;
+            margin: 0;
+            padding: 10px;
+        }
+
+        table {
+            width: 100%;
+            border: 0;
+            cellpadding: 0;
+            cellspacing: 0;
+        }
+
+        .main-table {
+            background-color: #ffffff;
+            border: 2px outset #c0c0c0;
+        }
+
+        .header-cell {
+            background: linear-gradient(to bottom, #0000ff, #000080);
+            text-align: center;
+            padding: 15px;
+            border: 2px inset #c0c0c0;
+        }
+
+        .title-text {
+            font-family: Arial;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 1px 1px black;
+        }
+
+        .subtitle-text {
+            font-family: Arial;
+            font-size: 12px;
+            color: #ffff99;
+        }
+
+        .nav-cell {
+            background-color: #e0e0e0;
+            padding: 8px;
+            border: 1px solid #808080;
+        }
+
+        .nav-cell a {
+            color: #0000ff;
+            text-decoration: underline;
+            margin: 0 10px;
+        }
+
+        .nav-cell a:visited {
+            color: #800080;
+        }
+
+        .nav-cell a:hover {
+            color: #ff0000;
+        }
+
+        .content-cell {
+            background-color: #ffffff;
+            padding: 15px;
+            border: 1px inset #808080;
+        }
+
+        .sidebar-cell {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border: 1px inset #808080;
+            width: 200px;
+        }
+
+        .counter-box {
+            background-color: #000000;
+            color: #00ff00;
+            border: 1px solid #808080;
+            padding: 5px;
+            text-align: center;
+            font-family: "Courier New";
+            font-size: 10px;
+        }
+
+        .news-box {
+            background-color: #ffffcc;
+            border: 1px solid #808080;
+            padding: 8px;
+            margin: 10px 0;
+        }
+
+        .footer-cell {
+            background-color: #e0e0e0;
+            text-align: center;
+            padding: 8px;
+            border: 1px solid #808080;
+            font-size: 10px;
+        }
+
+        h1, h2, h3 {
+            margin: 8px 0;
+        }
+
+        h1 {
+            font-family: Arial;
+            color: #000080;
+            font-size: 16px;
+        }
+
+        h2 {
+            font-family: Arial;
+            color: #008000;
+            font-size: 14px;
+        }
+
+        h3 {
+            font-family: Arial;
+            color: #800000;
+            font-size: 12px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0; }
+        }
+
+        ul {
+            margin: 5px 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 2px 0;
+        }
+
+        .webring-box {
+            background-color: #d0d0d0;
+            border: 1px inset #808080;
+            padding: 5px;
+            text-align: center;
+            margin: 5px 0;
+        }
+
+        /* Google page styles */
+        .google-page {
+            display: none;
+            background-color: white;
+            font-family: arial, sans-serif;
+        }
+
+        .google-header {
+            text-align: center;
+            margin: 100px 0 30px 0;
+        }
+
+        .google-logo {
+            font-family: arial, sans-serif;
+            font-size: 90px;
+            font-weight: normal;
+            color: #4285f4;
+        }
+
+        .google-logo .g1 { color: #4285f4; }
+        .google-logo .o1 { color: #ea4335; }
+        .google-logo .o2 { color: #fbbc05; }
+        .google-logo .g2 { color: #4285f4; }
+        .google-logo .l { color: #34a853; }
+        .google-logo .e { color: #ea4335; }
+
+        .search-box {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .search-input {
+            width: 500px;
+            height: 40px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 0 15px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-buttons {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .search-button {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            font-family: arial, sans-serif;
+            font-size: 14px;
+            margin: 11px 4px;
+            padding: 0 20px;
+            line-height: 27px;
+            height: 36px;
+            min-width: 54px;
+            cursor: pointer;
+        }
+
+        .search-button:hover {
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+            background-color: #f1f3f4;
+        }
+
+        /* Results page styles */
+        .results-page {
+            display: none;
+            background-color: white;
+            font-family: arial, sans-serif;
+            padding: 20px;
+        }
+
+        .results-header {
+            border-bottom: 1px solid #ebebeb;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .results-logo {
+            font-size: 30px;
+            color: #4285f4;
+            float: left;
+            margin-right: 20px;
+        }
+
+        .results-search-box {
+            margin-left: 150px;
+            padding-top: 5px;
+        }
+
+        .results-input {
+            width: 500px;
+            height: 30px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 0 15px;
+            font-size: 14px;
+        }
+
+        .search-result {
+            margin: 20px 0;
+            max-width: 600px;
+        }
+
+        .result-url {
+            color: #006621;
+            font-size: 14px;
+            line-height: 1.3;
+        }
+
+        .result-title {
+            color: #1a0dab;
+            font-size: 20px;
+            line-height: 1.3;
+            text-decoration: underline;
+            cursor: pointer;
+            margin: 2px 0;
+        }
+
+        .result-title:hover {
+            text-decoration: none;
+        }
+
+        .result-description {
+            color: #545454;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        /* Horror page styles */
+        .horror-page {
+            display: none;
+            background-color: #000;
+            color: #fff;
+            font-family: "Courier New", monospace;
+            text-align: center;
+            padding: 50px;
+            min-height: 100vh;
+            overflow: hidden;
+        }
+
+        .horror-title {
+            font-size: 48px;
+            color: #ff0000;
+            text-shadow: 0 0 20px #ff0000;
+            margin-bottom: 30px;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+            75% { opacity: 0.9; }
+        }
+
+        .horror-text {
+            font-size: 18px;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #ccc;
+        }
+
+        .glitch-text {
+            animation: glitch 1s infinite;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .hidden-cursor {
+            animation: cursor-blink 1s infinite;
+        }
+
+        @keyframes cursor-blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Main 90s Website -->
+<div id="main-site">
+    <table class="main-table" cellpadding="0" cellspacing="2">
+        <tr>
+            <td colspan="2" class="header-cell">
+                <div class="title-text">CyberNet Central</div>
+                <div class="subtitle-text">Your Gateway to the Information Superhighway</div>
+                <div style="color: #cccccc; font-size: 10px;">Established 1998 | Member of 47 Web Rings</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="nav-cell">
+                <center>
+                <a href="#" onclick="randomRedirect()">[HOME]</a> | 
+                <a href="#" onclick="randomRedirect()">[ABOUT]</a> | 
+                <a href="#" onclick="showEmployeePage()">[STAFF]</a> | 
+                <a href="#" onclick="randomRedirect()">[LINKS]</a> | 
+                <a href="#" onclick="randomRedirect()">[DOWNLOADS]</a> | 
+                <a href="#" onclick="randomRedirect()">[GUESTBOOK]</a> | 
+                <a href="#" onclick="show404Page()">[CONTACT]</a>
+                </center>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="content-cell" width="70%">
+                <h1>Welcome to CyberNet Central!</h1>
+                
+                <p><b>Greetings, fellow web surfers!</b></p>
+                
+                <p>Welcome to my little corner of cyberspace! This site has been bringing you the latest in web technology and internet culture since 1998. Here you'll find everything you need to navigate the information superhighway.</p>
+                
+                <div class="news-box">
+                    <h3>Latest News:</h3>
+                    <b>New!</b> Added 50 new links to our directory!<br>
+                    <b>Updated:</b> Guestbook now supports HTML tags!<br>
+                    <b>Cool:</b> Check out our new JavaScript effects!
+                </div>
+                
+                <h2>What's New on the Web:</h2>
+                <ul>
+                    <li>Internet Explorer 5.0 Beta now available for download!</li>
+                    <li>New search engine called "Google" gaining popularity</li>
+                    <li>MP3 files are revolutionizing music sharing</li>
+                    <li>Y2K preparations in full swing across the net</li>
+                    <li>Napster changing how we get music forever</li>
+                </ul>
+                
+                <h2>Featured Links:</h2>
+                <ul>
+                    <li><a href="#" onclick="randomRedirect()">Yahoo! Directory</a> - The best way to find websites</li>
+                    <li><a href="#" onclick="randomRedirect()">Hotmail</a> - Free email for everyone</li>
+                    <li><a href="#" onclick="randomRedirect()">ICQ</a> - Chat with friends online</li>
+                    <li><a href="#" onclick="randomRedirect()">RealPlayer</a> - Stream audio and video</li>
+                    <li><a href="#" onclick="randomRedirect()">Winamp</a> - The ultimate MP3 player</li>
+                </ul>
+                
+                <h2>Web Development Tips:</h2>
+                <p>Want to make your own homepage? Here are some hot tips:</p>
+                <ul>
+                    <li>Use tables for layout - they're the future!</li>
+                    <li>Add a visitor counter to track your popularity</li>
+                    <li>Join web rings to get more traffic</li>
+                    <li>Animated GIFs make your site come alive</li>
+                    <li>Don't forget the "Under Construction" sign</li>
+                </ul>
+                
+            </td>
+            
+            <td class="sidebar-cell">
+                <h3>Site Stats</h3>
+                <div class="counter-box">
+                    HITS: 024,891<br>
+                    TODAY: 127<br>
+                    ONLINE: 3
+                </div>
+                
+                <h3>Cool Sites:</h3>
+                <font size="1">
+                • <a href="#" onclick="randomRedirect()">GeoCities</a><br>
+                • <a href="#" onclick="randomRedirect()">Tripod</a><br>
+                • <a href="#" onclick="randomRedirect()">AngelFire</a><br>
+                • <a href="#" onclick="randomRedirect()">FortuneCity</a><br>
+                • <a href="#" onclick="randomRedirect()">Xoom</a><br>
+                </font>
+                
+                <h3>Webmaster Info:</h3>
+                <font size="1">
+                Name: Mike_98<br>
+                Email: mike@cybernet.com<br>
+                ICQ: 12345678<br>
+                AIM: CyberMike98<br>
+                </font>
+                
+                <div style="background: #ffff99; border: 1px solid #000; padding: 5px; margin: 10px 0; font-size: 10px;">
+                    <b><span class="blink">NEW!</span></b><br>
+                    Free web hosting!<br>
+                    Sign up today!
+                </div>
+                
+                <h3>Awards:</h3>
+                <font size="1">
+                Cool Site of the Day<br>
+                - Yahoo! (3/15/99)<br><br>
+                Web Site of the Week<br>
+                - PC Magazine (4/2/99)
+                </font>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2">
+                <div class="webring-box">
+                    <b>90s Web Ring Navigation</b><br>
+                    <font size="1">
+                    <a href="#" onclick="randomRedirect()">&lt;&lt; Previous</a> | 
+                    <a href="#" onclick="randomRedirect()">Random</a> | 
+                    <a href="#" onclick="randomRedirect()">Next &gt;&gt;</a><br>
+                    Site 42 of 156 in the ring
+                    </font>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="footer-cell">
+                Best viewed with Internet Explorer 4.0+ or Netscape Navigator 4.0+<br>
+                This page was hand-coded in Notepad. No WYSIWYG editors were used!<br>
+                <br>
+                Copyright © 1998-1999 CyberNet Central. This site is Y2K compliant!<br>
+                <font size="1">Last updated: December 31, 1999 | Hosted by GeoCities</font>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- Google Page -->
+<div id="google-page" class="google-page">
+    <div class="google-header">
+        <div class="google-logo">
+            <span class="g1">G</span><span class="o1">o</span><span class="o2">o</span><span class="g2">g</span><span class="l">l</span><span class="e">e</span>
+        </div>
+    </div>
+    <div class="search-box">
+        <input type="text" class="search-input" id="search-input" placeholder="">
+    </div>
+    <div class="search-buttons">
+        <button class="search-button" onclick="performSearch()">Google Search</button>
+        <button class="search-button">I'm Feeling Lucky</button>
+    </div>
+</div>
+
+<!-- Results Page -->
+<div id="results-page" class="results-page">
+    <div class="results-header">
+        <div class="results-logo">Google</div>
+        <div class="results-search-box">
+            <input type="text" class="results-input" id="results-input" readonly>
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+    
+    <div style="color: #70757a; font-size: 14px; margin-bottom: 20px;">
+        About 847,000 results (0.35 seconds)
+    </div>
+    
+    <div class="search-result">
+        <div class="result-url">www.liveleak.com › view</div>
+        <div class="result-title" onclick="showHorrorPage()">LiveLeak - Real Footage, Real News, Real People</div>
+        <div class="result-description">LiveLeak aims to freely provide uncensored news and real footage. We believe in the public's right to know and see what's happening around the world...</div>
+    </div>
+    
+    <div class="search-result">
+        <div class="result-url">en.wikipedia.org › wiki › LiveLeak</div>
+        <div class="result-title" onclick="showHorrorPage()">LiveLeak - Wikipedia</div>
+        <div class="result-description">LiveLeak was a British video sharing website that allowed users to post and view uncensored content. The site was founded in October 2006...</div>
+    </div>
+    
+    <div class="search-result">
+        <div class="result-url">www.reddit.com › r › liveleak</div>
+        <div class="result-title" onclick="showHorrorPage()">r/LiveLeak - Reddit</div>
+        <div class="result-description">A community for sharing and discussing LiveLeak videos and content. Real footage from around the world, unfiltered and uncensored...</div>
+    </div>
+    
+    <div class="search-result">
+        <div class="result-url">archive.org › liveleak</div>
+        <div class="result-title" onclick="showHorrorPage()">LiveLeak Archive - Internet Archive</div>
+        <div class="result-description">Archived pages and videos from LiveLeak.com. Browse historical content and see how the site evolved over time...</div>
+    </div>
+</div>
+
+<!-- Employee Page -->
+<div id="employee-page" style="display: none;">
+    <table class="main-table" cellpadding="0" cellspacing="2">
+        <tr>
+            <td colspan="2" class="header-cell">
+                <div class="title-text">CyberNet Central Staff</div>
+                <div class="subtitle-text">Meet the Team Behind the Magic</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="nav-cell">
+                <center>
+                <a href="#" onclick="resetToMain()">[BACK TO HOME]</a> | 
+                <a href="#" onclick="randomRedirect()">[ABOUT]</a> | 
+                <a href="#" onclick="randomRedirect()">[LINKS]</a> | 
+                <a href="#" onclick="randomRedirect()">[DOWNLOADS]</a>
+                </center>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="content-cell" colspan="2">
+                <h1>Our Dedicated Team</h1>
+                
+                <p>CyberNet Central is powered by a small but dedicated team of web enthusiasts who are passionate about bringing you the best internet experience possible!</p>
+                
+                <table width="100%" cellpadding="10" cellspacing="0" border="1" style="border-collapse: collapse;">
+                    <tr bgcolor="#e0e0e0">
+                        <td><b>Name</b></td>
+                        <td><b>Position</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Specialties</b></td>
+                        <td><b>Fun Fact</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Mike Thompson</b></td>
+                        <td>Webmaster & Founder</td>
+                        <td>mike@cybernet.com</td>
+                        <td>HTML, JavaScript, Web Design</td>
+                        <td>Built his first website in 1995!</td>
+                    </tr>
+                    <tr bgcolor="#f8f8f8">
+                        <td><b>Sarah Chen</b></td>
+                        <td>Content Manager</td>
+                        <td>sarah@cybernet.com</td>
+                        <td>Writing, Research, Link Checking</td>
+                        <td>Collects vintage computer manuals</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dave Rodriguez</b></td>
+                        <td>Technical Support</td>
+                        <td>dave@cybernet.com</td>
+                        <td>CGI Scripts, Server Maintenance</td>
+                        <td>Can solve a Rubik's cube in under 2 minutes</td>
+                    </tr>
+                    <tr bgcolor="#f8f8f8">
+                        <td><b>Jennifer Walsh</b></td>
+                        <td>Graphics Designer</td>
+                        <td>jen@cybernet.com</td>
+                        <td>Photoshop, GIF Animation, Banners</td>
+                        <td>Created over 500 animated GIFs this year</td>
+                    </tr>
+                    <tr>
+                        <td><b>Kevin Park</b></td>
+                        <td>Link Directory Coordinator</td>
+                        <td>kevin@cybernet.com</td>
+                        <td>Web Surfing, Site Reviews, Categories</td>
+                        <td>Visits over 100 new websites every week</td>
+                    </tr>
+                </table>
+                
+                <h2>Want to Join Our Team?</h2>
+                <p>We're always looking for enthusiastic web developers, content writers, and internet experts to join our growing team! If you're passionate about the World Wide Web and want to help shape the future of online content, we'd love to hear from you.</p>
+                
+                <p><b>Current Openings:</b></p>
+                <ul>
+                    <li>Part-time HTML Coder (must know tables and frames)</li>
+                    <li>Java Applet Developer (experience with animation preferred)</li>
+                    <li>Guestbook Moderator (evenings and weekends)</li>
+                    <li>Web Ring Coordinator (networking skills essential)</li>
+                </ul>
+                
+                <p>Send your resume and a link to your homepage to: <a href="mailto:jobs@cybernet.com">jobs@cybernet.com</a></p>
+                
+                <div style="background: #ffffcc; border: 1px solid #808080; padding: 10px; margin: 15px 0;">
+                    <h3>Staff Picks - Cool Sites We Found This Week:</h3>
+                    <b>Mike:</b> "Check out this new search engine called Google - it's really fast!"<br>
+                    <b>Sarah:</b> "Found an amazing JavaScript tutorial site with working examples"<br>
+                    <b>Dave:</b> "New Perl CGI script collection - some really useful stuff here"<br>
+                    <b>Jennifer:</b> "Discovered a site with 1000+ free web graphics and clip art"<br>
+                    <b>Kevin:</b> "Added 15 new educational sites to our Science & Technology category"
+                </div>
+                
+                <p style="text-align: center; margin-top: 30px;">
+                    <a href="#" onclick="resetToMain()"><b>« Return to Main Page</b></a>
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="footer-cell">
+                CyberNet Central Staff Directory - Last Updated: November 15, 1999<br>
+                <font size="1">All staff members are available via ICQ and AOL Instant Messenger</font>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- 404 Error Page -->
+<div id="error-404-page" style="display: none;">
+    <table class="main-table" cellpadding="0" cellspacing="2">
+        <tr>
+            <td class="header-cell">
+                <div class="title-text" style="color: #ff0000;">ERROR 404 - PAGE NOT FOUND</div>
+                <div class="subtitle-text">Oops! Something went wrong...</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="content-cell" style="text-align: center; padding: 40px;">
+                <h1 style="color: #ff0000; font-size: 72px; margin: 20px 0;">404</h1>
+                
+                <h2>File Not Found</h2>
+                
+                <p>Sorry, the page you requested could not be found on our server.</p>
+                
+                <div style="background: #ffcccc; border: 2px solid #ff0000; padding: 15px; margin: 20px auto; max-width: 500px;">
+                    <h3>Possible Reasons:</h3>
+                    <ul style="text-align: left;">
+                        <li>The URL was typed incorrectly</li>
+                        <li>The page has been moved or deleted</li>
+                        <li>The server is experiencing technical difficulties</li>
+                        <li>Your browser cache needs to be refreshed</li>
+                        <li>The page is under construction</li>
+                    </ul>
+                </div>
+                
+                <h3>What You Can Do:</h3>
+                <ul style="text-align: left; max-width: 400px; margin: 20px auto;">
+                    <li>Check the URL for typing errors</li>
+                    <li>Click the "Back" button in your browser</li>
+                    <li>Visit our <a href="#" onclick="resetToMain()">homepage</a></li>
+                    <li>Use our site navigation menu</li>
+                    <li>Email the webmaster: <a href="mailto:mike@cybernet.com">mike@cybernet.com</a></li>
+                </ul>
+                
+                <div style="background: #ffffcc; border: 1px solid #808080; padding: 10px; margin: 20px auto; max-width: 500px;">
+                    <b>Did you know?</b><br>
+                    Error 404 means "Not Found" in HTTP status codes. It's named after room 404 at CERN where the World Wide Web was invented! (This is actually a myth, but it sounds cool!)
+                </div>
+                
+                <p style="margin-top: 30px;">
+                    <a href="#" onclick="resetToMain()" style="background: #e0e0e0; border: 2px outset #c0c0c0; padding: 5px 15px; text-decoration: none; color: black;">
+                        <b>« Return to Homepage</b>
+                    </a>
+                </p>
+                
+                <div style="margin-top: 40px; font-size: 10px; color: #666;">
+                    <p>If you continue to experience problems, please contact our technical support team.</p>
+                    <p>Error Code: 404 | Server: Apache/1.3.12 | Time: <span id="error-time"></span></p>
+                </div>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="footer-cell">
+                CyberNet Central - Error 404 Page<br>
+                <font size="1">This error has been logged for review by our technical staff</font>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="horror-page" class="horror-page">
+    <div class="horror-title">YOU SHOULDN'T HAVE SEARCHED FOR THAT</div>
+    
+    <div class="horror-text">
+        <p>Some knowledge is not meant to be found.</p>
+        
+        <p>You clicked on something you shouldn't have clicked on.</p>
+        
+        <p>The internet remembers everything.<br>
+        Every search.<br>
+        Every click.<br>
+        <span class="glitch-text">Every secret.</span></p>
+        
+        <p>We know what you were looking for.</p>
+        
+        <p>We know what you've done.</p>
+        
+        <p style="font-size: 24px; color: #ff0000; margin: 40px 0;">
+        There is no going back now<span class="hidden-cursor">_</span>
+        </p>
+        
+        <p style="font-size: 14px; margin-top: 60px;">
+        <span onclick="location.reload()" style="cursor: pointer; text-decoration: underline;">
+        Click here to return... if you can.
+        </span>
+        </p>
+    </div>
+</div>
+
+<script>
+let searchPerformed = false;
+
+function randomRedirect() {
+    // 1 in 5 chance (20%) to show Google page
+    if (Math.random() < 0.2) {
+        showGooglePage();
+    } else {
+        // Do nothing, stay on current page
+        return false;
+    }
+}
+
+function showGooglePage() {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('google-page').style.display = 'block';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    
+    // Focus on search input
+    setTimeout(() => {
+        document.getElementById('search-input').focus();
+    }, 100);
+}
+
+function performSearch() {
+    const searchInput = document.getElementById('search-input');
+    const query = searchInput.value.trim();
+    
+    if (query === '') {
+        return;
+    }
+    
+    // Show results page with LiveLeak results regardless of search term
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'block';
+    document.getElementById('results-input').value = query;
+    searchPerformed = true;
+}
+
+function showHorrorPage() {
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'block';
+    
+    // Change page background to black
+    document.body.style.backgroundColor = '#000';
+    document.body.style.margin = '0';
+    document.body.style.padding = '0';
+}
+
+// Allow Enter key to search
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && document.getElementById('google-page').style.display === 'block') {
+        performSearch();
+    }
+});
+
+// Reset body style when returning to main site
+function showEmployeePage() {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('employee-page').style.display = 'block';
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'none';
+}
+
+function show404Page() {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('employee-page').style.display = 'none';
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'block';
+    
+    // Set current time for error page
+    document.getElementById('error-time').textContent = new Date().toLocaleString();
+}
+
+function resetToMain() {
+    document.body.style.backgroundColor = '#c0c0c0';
+    document.body.style.margin = '0';
+    document.body.style.padding = '10px';
+    document.getElementById('main-site').style.display = 'block';
+    document.getElementById('employee-page').style.display = 'none';
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
