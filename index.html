@@ -480,6 +480,7 @@
 </div>
 
 <!-- Google Page -->
+<!-- Google Page -->
 <div id="google-page" class="google-page">
     <div class="google-header">
         <div class="google-logo">
@@ -491,9 +492,94 @@
     </div>
     <div class="search-buttons">
         <button class="search-button" onclick="performSearch()">Google Search</button>
-        <button class="search-button">I'm Feeling Lucky</button>
+        <button class="search-button" id="lucky-button">I'm Feeling Lucky</button>
     </div>
 </div>
+
+<style>
+  /* Flicker for the Google logo */
+  .google-logo {
+    font-family: arial, sans-serif;
+    font-size: 90px;
+    font-weight: normal;
+    color: #4285f4;
+    position: relative;
+    animation: glitchFade 5s infinite alternate;
+  }
+  @keyframes glitchFade {
+    0%, 100% { opacity: 1; text-shadow: none; }
+    20%, 60% { opacity: 0.85; text-shadow: 2px 0 red, -2px 0 cyan; }
+    40%, 80% { opacity: 0.9; text-shadow: 0 2px red, 0 -2px cyan; }
+  }
+
+  /* Glitchy search input */
+  .search-input {
+    width: 500px;
+    height: 40px;
+    border: 1px solid #dfe1e5;
+    border-radius: 24px;
+    padding: 0 15px;
+    font-size: 16px;
+    outline: none;
+    animation: flickerCursor 1.5s infinite;
+  }
+  @keyframes flickerCursor {
+    0%, 100% { box-shadow: none; }
+    50% { box-shadow: inset 0 0 8px 2px #ff0000; }
+  }
+
+  /* Placeholder spooky text fade */
+  ::placeholder {
+    color: #a0a0a0;
+    animation: placeholderFade 8s infinite;
+  }
+  @keyframes placeholderFade {
+    0%, 100% { color: #a0a0a0; }
+    50% { color: #ff0000; }
+  }
+
+  /* Button glitch hover */
+  .search-button:hover {
+    animation: glitchButton 0.5s infinite;
+    background-color: #f44336;
+    color: #fff;
+  }
+  @keyframes glitchButton {
+    0%, 100% { text-shadow: none; }
+    20%, 80% { text-shadow: 1px 0 red, -1px 0 cyan; }
+    40%, 60% { text-shadow: 0 1px red, 0 -1px cyan; }
+  }
+</style>
+
+<script>
+  // spooky placeholder texts
+  const spookyTexts = [
+    "Search... if you dare",
+    "What lurks in the dark?",
+    "Find the forbidden",
+    "Don't trust the results...",
+    "Whispers await your query",
+    "Enter your doom..."
+  ];
+  
+  const searchInput = document.getElementById('search-input');
+
+  function randomPlaceholder() {
+    const text = spookyTexts[Math.floor(Math.random() * spookyTexts.length)];
+    searchInput.setAttribute('placeholder', text);
+  }
+  
+  setInterval(randomPlaceholder, 5000);
+  randomPlaceholder();
+
+  // I'm Feeling Lucky triggers creepy alert + glitch effect
+  const luckyBtn = document.getElementById('lucky-button');
+  luckyBtn.addEventListener('click', () => {
+    alert("You shouldn’t be feeling lucky...");
+    showHorrorPage();
+  });
+</script>
+
 
 <!-- Results Page -->
 <div id="results-page" class="results-page">
