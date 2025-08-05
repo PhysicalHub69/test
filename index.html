@@ -357,10 +357,11 @@
                 <center>
                 <a href="#" onclick="randomRedirect()">[HOME]</a> | 
                 <a href="#" onclick="randomRedirect()">[ABOUT]</a> | 
+                <a href="#" onclick="showEmployeePage()">[STAFF]</a> | 
                 <a href="#" onclick="randomRedirect()">[LINKS]</a> | 
                 <a href="#" onclick="randomRedirect()">[DOWNLOADS]</a> | 
                 <a href="#" onclick="randomRedirect()">[GUESTBOOK]</a> | 
-                <a href="#" onclick="randomRedirect()">[CONTACT]</a>
+                <a href="#" onclick="show404Page()">[CONTACT]</a>
                 </center>
             </td>
         </tr>
@@ -533,7 +534,180 @@
     </div>
 </div>
 
-<!-- Horror Page -->
+<!-- Employee Page -->
+<div id="employee-page" style="display: none;">
+    <table class="main-table" cellpadding="0" cellspacing="2">
+        <tr>
+            <td colspan="2" class="header-cell">
+                <div class="title-text">CyberNet Central Staff</div>
+                <div class="subtitle-text">Meet the Team Behind the Magic</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="nav-cell">
+                <center>
+                <a href="#" onclick="resetToMain()">[BACK TO HOME]</a> | 
+                <a href="#" onclick="randomRedirect()">[ABOUT]</a> | 
+                <a href="#" onclick="randomRedirect()">[LINKS]</a> | 
+                <a href="#" onclick="randomRedirect()">[DOWNLOADS]</a>
+                </center>
+            </td>
+        </tr>
+
+        <tr>
+            <td class="content-cell" colspan="2">
+                <h1>Our Dedicated Team</h1>
+                
+                <p>CyberNet Central is powered by a small but dedicated team of web enthusiasts who are passionate about bringing you the best internet experience possible!</p>
+                
+                <table width="100%" cellpadding="10" cellspacing="0" border="1" style="border-collapse: collapse;">
+                    <tr bgcolor="#e0e0e0">
+                        <td><b>Name</b></td>
+                        <td><b>Position</b></td>
+                        <td><b>Email</b></td>
+                        <td><b>Specialties</b></td>
+                        <td><b>Fun Fact</b></td>
+                    </tr>
+                    <tr>
+                        <td><b>Mike Thompson</b></td>
+                        <td>Webmaster & Founder</td>
+                        <td>mike@cybernet.com</td>
+                        <td>HTML, JavaScript, Web Design</td>
+                        <td>Built his first website in 1995!</td>
+                    </tr>
+                    <tr bgcolor="#f8f8f8">
+                        <td><b>Sarah Chen</b></td>
+                        <td>Content Manager</td>
+                        <td>sarah@cybernet.com</td>
+                        <td>Writing, Research, Link Checking</td>
+                        <td>Collects vintage computer manuals</td>
+                    </tr>
+                    <tr>
+                        <td><b>Dave Rodriguez</b></td>
+                        <td>Technical Support</td>
+                        <td>dave@cybernet.com</td>
+                        <td>CGI Scripts, Server Maintenance</td>
+                        <td>Can solve a Rubik's cube in under 2 minutes</td>
+                    </tr>
+                    <tr bgcolor="#f8f8f8">
+                        <td><b>Jennifer Walsh</b></td>
+                        <td>Graphics Designer</td>
+                        <td>jen@cybernet.com</td>
+                        <td>Photoshop, GIF Animation, Banners</td>
+                        <td>Created over 500 animated GIFs this year</td>
+                    </tr>
+                    <tr>
+                        <td><b>Kevin Park</b></td>
+                        <td>Link Directory Coordinator</td>
+                        <td>kevin@cybernet.com</td>
+                        <td>Web Surfing, Site Reviews, Categories</td>
+                        <td>Visits over 100 new websites every week</td>
+                    </tr>
+                </table>
+                
+                <h2>Want to Join Our Team?</h2>
+                <p>We're always looking for enthusiastic web developers, content writers, and internet experts to join our growing team! If you're passionate about the World Wide Web and want to help shape the future of online content, we'd love to hear from you.</p>
+                
+                <p><b>Current Openings:</b></p>
+                <ul>
+                    <li>Part-time HTML Coder (must know tables and frames)</li>
+                    <li>Java Applet Developer (experience with animation preferred)</li>
+                    <li>Guestbook Moderator (evenings and weekends)</li>
+                    <li>Web Ring Coordinator (networking skills essential)</li>
+                </ul>
+                
+                <p>Send your resume and a link to your homepage to: <a href="mailto:jobs@cybernet.com">jobs@cybernet.com</a></p>
+                
+                <div style="background: #ffffcc; border: 1px solid #808080; padding: 10px; margin: 15px 0;">
+                    <h3>Staff Picks - Cool Sites We Found This Week:</h3>
+                    <b>Mike:</b> "Check out this new search engine called Google - it's really fast!"<br>
+                    <b>Sarah:</b> "Found an amazing JavaScript tutorial site with working examples"<br>
+                    <b>Dave:</b> "New Perl CGI script collection - some really useful stuff here"<br>
+                    <b>Jennifer:</b> "Discovered a site with 1000+ free web graphics and clip art"<br>
+                    <b>Kevin:</b> "Added 15 new educational sites to our Science & Technology category"
+                </div>
+                
+                <p style="text-align: center; margin-top: 30px;">
+                    <a href="#" onclick="resetToMain()"><b>« Return to Main Page</b></a>
+                </p>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="footer-cell">
+                CyberNet Central Staff Directory - Last Updated: November 15, 1999<br>
+                <font size="1">All staff members are available via ICQ and AOL Instant Messenger</font>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- 404 Error Page -->
+<div id="error-404-page" style="display: none;">
+    <table class="main-table" cellpadding="0" cellspacing="2">
+        <tr>
+            <td class="header-cell">
+                <div class="title-text" style="color: #ff0000;">ERROR 404 - PAGE NOT FOUND</div>
+                <div class="subtitle-text">Oops! Something went wrong...</div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="content-cell" style="text-align: center; padding: 40px;">
+                <h1 style="color: #ff0000; font-size: 72px; margin: 20px 0;">404</h1>
+                
+                <h2>File Not Found</h2>
+                
+                <p>Sorry, the page you requested could not be found on our server.</p>
+                
+                <div style="background: #ffcccc; border: 2px solid #ff0000; padding: 15px; margin: 20px auto; max-width: 500px;">
+                    <h3>Possible Reasons:</h3>
+                    <ul style="text-align: left;">
+                        <li>The URL was typed incorrectly</li>
+                        <li>The page has been moved or deleted</li>
+                        <li>The server is experiencing technical difficulties</li>
+                        <li>Your browser cache needs to be refreshed</li>
+                        <li>The page is under construction</li>
+                    </ul>
+                </div>
+                
+                <h3>What You Can Do:</h3>
+                <ul style="text-align: left; max-width: 400px; margin: 20px auto;">
+                    <li>Check the URL for typing errors</li>
+                    <li>Click the "Back" button in your browser</li>
+                    <li>Visit our <a href="#" onclick="resetToMain()">homepage</a></li>
+                    <li>Use our site navigation menu</li>
+                    <li>Email the webmaster: <a href="mailto:mike@cybernet.com">mike@cybernet.com</a></li>
+                </ul>
+                
+                <div style="background: #ffffcc; border: 1px solid #808080; padding: 10px; margin: 20px auto; max-width: 500px;">
+                    <b>Did you know?</b><br>
+                    Error 404 means "Not Found" in HTTP status codes. It's named after room 404 at CERN where the World Wide Web was invented! (This is actually a myth, but it sounds cool!)
+                </div>
+                
+                <p style="margin-top: 30px;">
+                    <a href="#" onclick="resetToMain()" style="background: #e0e0e0; border: 2px outset #c0c0c0; padding: 5px 15px; text-decoration: none; color: black;">
+                        <b>« Return to Homepage</b>
+                    </a>
+                </p>
+                
+                <div style="margin-top: 40px; font-size: 10px; color: #666;">
+                    <p>If you continue to experience problems, please contact our technical support team.</p>
+                    <p>Error Code: 404 | Server: Apache/1.3.12 | Time: <span id="error-time"></span></p>
+                </div>
+                
+            </td>
+        </tr>
+        
+        <tr>
+            <td class="footer-cell">
+                CyberNet Central - Error 404 Page<br>
+                <font size="1">This error has been logged for review by our technical staff</font>
+            </td>
+        </tr>
+    </table>
+</div>
 <div id="horror-page" class="horror-page">
     <div class="horror-title">YOU SHOULDN'T HAVE SEARCHED FOR THAT</div>
     
@@ -621,14 +795,37 @@ document.addEventListener('keydown', function(event) {
 });
 
 // Reset body style when returning to main site
+function showEmployeePage() {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('employee-page').style.display = 'block';
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'none';
+}
+
+function show404Page() {
+    document.getElementById('main-site').style.display = 'none';
+    document.getElementById('employee-page').style.display = 'none';
+    document.getElementById('google-page').style.display = 'none';
+    document.getElementById('results-page').style.display = 'none';
+    document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'block';
+    
+    // Set current time for error page
+    document.getElementById('error-time').textContent = new Date().toLocaleString();
+}
+
 function resetToMain() {
     document.body.style.backgroundColor = '#c0c0c0';
     document.body.style.margin = '0';
     document.body.style.padding = '10px';
     document.getElementById('main-site').style.display = 'block';
+    document.getElementById('employee-page').style.display = 'none';
     document.getElementById('google-page').style.display = 'none';
     document.getElementById('results-page').style.display = 'none';
     document.getElementById('horror-page').style.display = 'none';
+    document.getElementById('error-404-page').style.display = 'none';
 }
 </script>
 
